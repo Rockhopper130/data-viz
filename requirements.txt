@@ -2,8 +2,7 @@ geopandas==0.14.2
 matplotlib==3.7.1
 matplotlib-inline==0.1.6
 numpy==1.26.3
-opencv-python==4.9.0.80
-opencv-python-headless==4.9.0.80
+Pillow==9.4.0
 pandas==2.2.2
 plotnine==0.13.4
 streamlit==1.33.0
