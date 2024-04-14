@@ -25,14 +25,14 @@ def main():
     border_color = st.text_input("Select Border Color (default : black)", value="black")
 
     if st.sidebar.button("Run"):
-        try:
-            temp = PipeLine(CROP=CROP, mode=MODE, cmap=cmap, border_color=border_color)
-            _, anim, plot = temp.main()
-            st.write(anim, unsafe_allow_html=True)
-            st.pyplot(plot.draw())
+        # try:
+        temp = PipeLine(CROP=CROP, mode=MODE, cmap=cmap, border_color=border_color)
+        _, anim, plot = temp.main()
+        st.write(anim, unsafe_allow_html=True)
+        st.pyplot(plot.draw())
 
-        except:
-            st.write("The mode is currently not available for this crop. Please select 'AREA (1000 ha).'")
+        # except:
+            # st.write("The mode is currently not available for this crop. Please select 'AREA (1000 ha).'")
 
 if __name__ == "__main__":
     main()
