@@ -7,3 +7,4 @@ pandas==2.2.2
 plotnine==0.13.4
 streamlit==1.33.0
 tqdm==4.65.0
+ipython==8.11.0
