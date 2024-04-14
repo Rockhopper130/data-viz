@@ -12,7 +12,7 @@ from PIL import Image
 
 from plotnine import *
 
-import cv2
+# import cv2
 from IPython.display import HTML
 from matplotlib import animation, rc
 rc('animation', html='jshtml')
