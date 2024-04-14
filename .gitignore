@@ -1,0 +1,76 @@
+# macOS system files that you typically don't want to include in version control
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.Trashes
+
+# Files created by macOS Finder
+.Spotlight-V100
+.Trashes
+._.Trashes
+.fseventsd
+.Spotlight-V100
+.DS_Store
+.AppleDesktop
+.AppleDB
+.AppleDouble
+Network Trash Folder
+Temporary Items
+.apdisk
+
+# Compiled files
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+# Logs and databases
+*.log
+*.sql
+*.sqlite
+
+# Compiled Python files
+__pycache__/
+*.pyc
+
+# Compiled Java files
+*.class
+
+# Packages and archives
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# IDE and editor files
+.idea/
+.vscode/
+*.swp
+*~
+
+# Dependency directories (e.g., Node modules)
+node_modules/
+vendor/
+
+# Temporary files
+*.tmp
+*.bak
+*.swp
+
+
+# Ignore all files in the folder "path/to/file" 
+plots/*
+
+data/*
+!data/india_gis/India States/Indian_states.shp
+!data/ICRISAT-District Level Data.csv
+
+
