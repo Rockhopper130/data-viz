@@ -8,11 +8,10 @@ from tqdm import tqdm
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
-from PIL import Image
 
 from plotnine import *
 
-# import cv2
+import cv2
 from IPython.display import HTML
 from matplotlib import animation, rc
 rc('animation', html='jshtml')
@@ -99,65 +98,34 @@ class PipeLine():
         for i in tqdm(range(1966,2018)):
             self.plot_map(f'{self.CROP.title()} {self.mode.title()} ({i})',f'{i}',f'{self.directory}/{i}.jpg',cmap,fontsize,fontweight)
         
-    # def create_animation(self,ims):
-    #     fig=plt.figure(figsize=(10,10))
-    #     plt.axis('off')
-    #     im=plt.imshow(cv2.cvtColor(ims[0],cv2.COLOR_BGR2RGB))
-        
-    #     def animate_func(i):
-    #         im.set_array(cv2.cvtColor(ims[i],cv2.COLOR_BGR2RGB))
-    #         return [im]
-
-    #     return animation.FuncAnimation(fig, animate_func, frames=len(ims), interval=500)
-
-        
-    # def build_animation(self):
-    #     imgdir1 =f'plots/{self.CROP.lower()}/{self.mode.lower()}' 
-    #     paths0=[]
-    #     for dirname, _, filenames in os.walk(imgdir1):
-    #         for filename in filenames:
-    #             if filename not in ['__notebook_source__.ipynb','__notebook__.ipynb']:
-    #                 # print(filename)
-    #                 paths0+=[os.path.join(dirname, filename)]     
-    #     paths0 = sorted(paths0)
-    #     images0=[]
-    #     for i in tqdm(range(0,len(paths0))):
-    #         images0+=[cv2.imread(paths0[i])]
-        
-    #     anim = self.create_animation(np.array(images0))
-    #     plt.close(1)
-        
-    #     html_code = anim.to_html5_video()
-    #     modified_html_code = html_code.replace('<video ', '<video width="800" height="800" ')
-    #     return HTML(modified_html_code)
-    
-    def create_animation(self, ims):
-        fig = plt.figure(figsize=(10, 10))
+    def create_animation(self,ims):
+        fig=plt.figure(figsize=(10,10))
         plt.axis('off')
-        im = plt.imshow(ims[0])
-
+        im=plt.imshow(cv2.cvtColor(ims[0],cv2.COLOR_BGR2RGB))
+        
         def animate_func(i):
-            im.set_array(ims[i])
+            im.set_array(cv2.cvtColor(ims[i],cv2.COLOR_BGR2RGB))
             return [im]
 
         return animation.FuncAnimation(fig, animate_func, frames=len(ims), interval=500)
 
+        
     def build_animation(self):
-        imgdir1 = f'plots/{self.CROP.lower()}/{self.mode.lower()}'
-        paths0 = []
+        imgdir1 =f'plots/{self.CROP.lower()}/{self.mode.lower()}' 
+        paths0=[]
         for dirname, _, filenames in os.walk(imgdir1):
             for filename in filenames:
-                if filename not in ['__notebook_source__.ipynb', '__notebook__.ipynb']:
-                    paths0.append(os.path.join(dirname, filename))
+                if filename not in ['__notebook_source__.ipynb','__notebook__.ipynb']:
+                    # print(filename)
+                    paths0+=[os.path.join(dirname, filename)]     
         paths0 = sorted(paths0)
-        images0 = []
-        for i in tqdm(range(len(paths0))):
-            img = Image.open(paths0[i])
-            images0.append(img)
-
-        anim = self.create_animation(images0)
+        images0=[]
+        for i in tqdm(range(0,len(paths0))):
+            images0+=[cv2.imread(paths0[i])]
+        
+        anim = self.create_animation(np.array(images0))
         plt.close(1)
-
+        
         html_code = anim.to_html5_video()
         modified_html_code = html_code.replace('<video ', '<video width="800" height="800" ')
         return HTML(modified_html_code)
