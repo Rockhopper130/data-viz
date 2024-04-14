@@ -70,7 +70,8 @@ vendor/
 plots/*
 
 data/*
-!data/india_gis/India States/Indian_states.shp
+
+!data/india_gis/**
 !data/ICRISAT-District Level Data.csv
 
 
